@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import co.edu.unab.api.models.AddressModel;
 import co.edu.unab.api.models.ClienteModel;
 import co.edu.unab.api.repositories.ClienteRepository;
 
@@ -39,29 +38,29 @@ public class ClienteService {
         return clienteRepository.findById(id);
     }  
     
-    public Optional<ClienteModel> obtenerClientePorNombre(String nombre){
+    public ArrayList<ClienteModel> obtenerClientesPorNombre(String nombre){
     	
-    	return null;
+    	return this.clienteRepository.findByNombre(nombre);
     }
     
-    public Optional<ClienteModel> obtenerClientePorNombreYApellido(String nombre, String apellido){
+    public ArrayList<ClienteModel> obtenerClientesPorNombreYApellido(String nombre, String apellido){
     
-    	return null;
+    	return this.clienteRepository.clientesPorNombreApellido(nombre, apellido);
     }
     
-    public Optional<ClienteModel> obtenerPorPuntosMayorIgual(Long puntos){
+    public ArrayList<ClienteModel> obtenerClientesPorPuntosMayorIgual(Long puntos){
     	
-    	return null;
+    	return this.clienteRepository.findByPuntosGreaterThanEqual(puntos);
     }
     
-    public Optional<ClienteModel> obtenerPorPuntosMenorIgual(Long puntos){
+    public ArrayList<ClienteModel> obtenerClientesPorPuntosMenorIgual(Long puntos){
     	
-    	return null;
+    	return this.clienteRepository.findByPuntosLessThanEqual(puntos);
     }
     
-    public Optional<ClienteModel> obtenerPorDireccionCiudad(AddressModel direccion){
+    public ArrayList<ClienteModel> obtenerClientesPorDireccionCiudad(String ciudad){
     	
-    	return null;
+    	return this.clienteRepository.clientesPorCiudad(ciudad);
     }
     
    

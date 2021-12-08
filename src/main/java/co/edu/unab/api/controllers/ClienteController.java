@@ -49,6 +49,31 @@ public class ClienteController {
     public Optional<ClienteModel> obtenerClientePorId(@PathVariable("id") String id){
         return this.clienteService.obtenerClientePorId(id);
     }
+    
+    @GetMapping(path = "/nombre/{nombre}")
+    public ArrayList<ClienteModel> obtenerClientePorNombre(@PathVariable("nombre") String nombre){
+    	return this.clienteService.obtenerClientesPorNombre(nombre);
+    }
+    
+    @GetMapping(path = "/nombre/{nombre}/apellido/{apellido}")
+    public ArrayList<ClienteModel> obtenerClientePorNombreYApellido(@PathVariable("nombre") String nombre, @PathVariable("apellido") String apellido){
+    	return this.clienteService.obtenerClientesPorNombreYApellido(nombre, apellido);
+    }
+    
+    @GetMapping(path = "/puntos/menorigual/{puntos}")
+    public ArrayList<ClienteModel> obtenerClientePorPuntosMenorIgual(@PathVariable("puntos") Long puntos){
+    	return this.clienteService.obtenerClientesPorPuntosMenorIgual(puntos);
+    }
+    
+    @GetMapping(path = "/puntos/mayorigual/{puntos}")
+    public ArrayList<ClienteModel> obtenerClientesPorPuntosMayorIgual(@PathVariable("puntos") Long puntos){
+    	return this.clienteService.obtenerClientesPorPuntosMayorIgual(puntos);
+    }
+    
+    @GetMapping(path = "/address/{ciudad}")
+    public ArrayList<ClienteModel> obtenerClientesPorCiudad(@PathVariable("ciudad") String ciudad){
+    	return this.clienteService.obtenerClientesPorDireccionCiudad(ciudad);
+    }
 
   
 }
